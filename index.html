@@ -476,7 +476,7 @@
 
   .contact-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 4rem;
     align-items: start;
   }
@@ -859,24 +859,6 @@
             evaluationpolicy.com
           </a>
         </div>
-      </div>
-      <div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-field">
-            <label>Name</label>
-            <input type="text" placeholder="Your name" required>
-          </div>
-          <div class="form-field">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-field">
-            <label>Message</label>
-            <textarea placeholder="Your message..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:fit-content;">Send Message</button>
-        </form>
-        <p id="form-msg" style="margin-top:1rem;color:var(--blue);font-size:0.9rem;display:none;">Thanks! I will be in touch soon.</p>
       </div>
     </div>
   </div>
