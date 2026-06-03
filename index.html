@@ -3,803 +3,468 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alana R. Kinarsky, PhD</title>
+<title>Alana R. Kinarsky, PhD — Social Science Research &amp; Evaluation</title>
+<meta name="description" content="Dr. Alana R. Kinarsky is a social science researcher and evaluator specializing in youth development, faith-based initiatives, and organizational learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* ============================================================
+     ARK Evaluation — design tokens (ported from the brand kit)
+     Brand: deep teal-navy on warm cream, Archivo Black + Inter.
+     ============================================================ */
   :root {
-    --blue: #1B4FA8;
-    --blue-dark: #0F2E6B;
-    --blue-light: #E8F0FB;
-    --blue-mid: #3A6BC9;
-    --sage: #1B8C6E;
-    --sage-light: #e0f4ee;
-    --plum: #6B3FA0;
-    --plum-light: #f0eaf8;
-    --yellow: #F5C842;
-    --yellow-dark: #C89B0F;
-    --white: #ffffff;
-    --off-white: #F8F7F4;
-    --text: #1a1a2e;
-    --text-muted: #5a6175;
-    --border: #dde3ef;
-    --nav-height: 72px;
+    --navy:        #0C3C54;
+    --navy-dark:   #062535;
+    --navy-mid:    #1F5470;
+    --navy-light:  #E3ECF0;
+
+    --cream:       #FBFCF4;
+    --cream-deep:  #F4F2E6;
+    --white:       #FFFFFF;
+
+    --rust:        #C4541C;
+    --rust-light:  #FBE9DD;
+    --rust-label:  #8C3B14;
+    --marigold:    #E8B43A;
+    --marigold-light: #FAEFC9;
+    --marigold-label: #9B7515;
+    --sage:        #7AA889;
+    --sage-light:  #E2EDE6;
+    --sage-label:  #3F6A4D;
+
+    --text:        #1A2530;
+    --text-muted:  #5A6B78;
+    --border:      #D9DEE3;
+
+    --font-display: 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
+    --font-brand:   'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+    --nav-height: 80px;
+    --shadow-card-hover: 0 8px 24px rgba(12,60,84,0.10);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: var(--font-brand);
     font-weight: 400;
     color: var(--text);
-    background: var(--white);
-    line-height: 1.7;
+    background: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 400;       /* Archivo Black is already heavy — never bold it */
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--navy);
+  }
+
+  a { color: inherit; }
+
+  /* ── NAV ───────────────────────────────────────────────────── */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+    position: sticky;
+    top: 0; z-index: 100;
     height: var(--nav-height);
-    background: var(--blue-dark);
+    background: var(--cream);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2.5rem;
-    z-index: 100;
-    border-bottom: 3px solid var(--yellow);
+    border-bottom: 1px solid var(--border);
   }
-
-  .nav-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-
-  .nav-name span { color: var(--yellow); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
+  .nav-brand { display: flex; align-items: center; text-decoration: none; }
+  .nav-brand img { height: 44px; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     text-decoration: none;
-    color: rgba(255,255,255,0.8);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    color: var(--navy);
     transition: color 0.2s;
   }
+  .nav-links a:hover, .nav-links a.active { color: var(--rust); }
 
-  .nav-links a:hover,
-  .nav-links a.active { color: var(--yellow); }
-
-  /* DIVIDERS */
-  .dotted-divider {
-    width: 100%;
-    height: 6px;
-    background-image: radial-gradient(circle, var(--yellow) 2px, transparent 2px);
-    background-size: 14px 6px;
-    background-repeat: repeat-x;
-    margin: 0;
-  }
-
-  .dotted-divider-blue {
-    background-image: radial-gradient(circle, var(--blue-mid) 2px, transparent 2px);
-    margin: 2.5rem 0;
-  }
-
-  .dotted-divider-white {
-    background-image: radial-gradient(circle, rgba(255,255,255,0.35) 2px, transparent 2px);
-  }
-
-  /* HERO */
-  #about {
-    padding-top: var(--nav-height);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: var(--white);
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 5rem 2.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .hero-photo-wrap {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-photo {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center top;
-    position: relative;
-    z-index: 1;
-    display: block;
-  }
-
-  .photo-ring {
-    position: absolute;
-    width: 308px;
-    height: 308px;
-    border: 3px solid var(--yellow);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--blue-dark);
-    line-height: 1.15;
-    margin-bottom: 0.5rem;
-  }
-
-  .title-tag {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--blue-dark);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 2px;
-    margin-bottom: 1.25rem;
-  }
-
-  .affil {
-    font-size: 0.9rem;
-    color: var(--blue);
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .hero-text p {
-    font-size: 1.02rem;
-    color: var(--text-muted);
-    margin-bottom: 0.85rem;
-    line-height: 1.75;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    padding: 1rem 1.25rem;
-    background: var(--blue-light);
-    border-radius: 3px;
-    border-left: 4px solid var(--blue);
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--blue);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 3px;
-  }
-
-  .hero-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1.25rem;
-  }
-
-  /* BUTTONS */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    border-radius: 3px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-    font-family: 'Source Sans 3', sans-serif;
-  }
-
-  .btn-primary { background: var(--blue); color: var(--white); }
-  .btn-primary:hover { background: var(--blue-dark); }
-  .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
-  .btn-outline:hover { background: var(--blue); color: var(--white); }
-  .btn-yellow { background: var(--yellow); color: var(--blue-dark); }
-  .btn-yellow:hover { background: #e0b530; }
-
-  /* SECTIONS */
+  /* ── SHARED LAYOUT ─────────────────────────────────────────── */
   section { scroll-margin-top: var(--nav-height); }
-
-  .section-inner {
+  .inner {
     max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 2.5rem;
   }
 
-  .section-header { margin-bottom: 3rem; }
-
-  .section-label {
+  .eyebrow {
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--yellow-dark);
+    color: var(--rust);
     margin-bottom: 0.5rem;
   }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--blue-dark);
-  }
-
-  .section-subtitle {
+  .section-head { margin-bottom: 3rem; }
+  .section-head h2 { font-size: 2.2rem; line-height: 1.1; }
+  .section-head .subtitle {
     font-size: 1.05rem;
     color: var(--text-muted);
     margin-top: 0.75rem;
     max-width: 650px;
   }
 
-  /* RESEARCH */
-  #research { background: var(--off-white); }
-
-  .research-areas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .research-card {
-    background: var(--blue);
-    color: var(--white);
-    border-radius: 4px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    transition: transform 0.2s;
-  }
-
-  .research-card:nth-child(2) { background: var(--sage); }
-  .research-card:nth-child(3) { background: var(--blue-mid); }
-  .research-card:hover { transform: translateY(-4px); }
-
-  .research-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-  .research-card h3 { font-size: 1rem; font-weight: 600; }
-
-  /* PUBLICATIONS */
-  .pub-group { margin-bottom: 3rem; }
-
-  .pub-group-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
-    color: var(--blue);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--yellow);
-    display: inline-block;
-  }
-
-  .pub-group-title.sage { color: var(--sage); }
-  .pub-group-title.plum { color: var(--plum); }
-
-  .pub-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .pub-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem 1.25rem;
-    background: var(--white);
-    border-radius: 3px;
-    border-left: 4px solid var(--blue);
-    font-size: 0.92rem;
-    line-height: 1.6;
-  }
-
-  .pub-item.sage { border-left-color: var(--sage); }
-  .pub-item.plum { border-left-color: var(--plum); }
-
-  .pub-year {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--blue);
-    background: var(--blue-light);
-    padding: 2px 8px;
-    border-radius: 2px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-
-  .pub-item.sage .pub-year { color: var(--sage); background: var(--sage-light); }
-  .pub-item.plum .pub-year { color: var(--plum); background: var(--plum-light); }
-
-  .pub-text { color: var(--text); }
-  .pub-text em { font-style: italic; }
-
-  .pub-cite {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 2px;
+  /* Arch — brand signature echoing the logo */
+  .arch {
     display: block;
+    width: 54px; height: 27px;
+    border: 4px solid var(--rust);
+    border-bottom: none;
+    border-top-left-radius: 54px;
+    border-top-right-radius: 54px;
+    margin-bottom: 1.25rem;
   }
 
-  .scholar-note {
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
+  /* ── DOTTED DIVIDER ────────────────────────────────────────── */
+  .divider {
+    width: 100%; height: 4px;
+    background-image: radial-gradient(circle, var(--navy) 1.5px, transparent 1.5px);
+    background-size: 12px 4px;
+    background-repeat: repeat-x;
   }
+  .divider--rust { background-image: radial-gradient(circle, var(--rust) 1.5px, transparent 1.5px); }
 
-  .scholar-note a { color: var(--blue); font-weight: 600; text-decoration: none; }
-  .scholar-note a:hover { text-decoration: underline; }
+  /* ── BUTTONS ───────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 26px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-brand);
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--navy); color: var(--cream); }
+  .btn-primary:hover { background: var(--navy-dark); }
+  .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: 9px 24px; }
+  .btn-outline:hover { background: var(--navy); color: var(--cream); }
 
-  /* PROJECTS */
+  /* ── HERO ──────────────────────────────────────────────────── */
+  #about { background: var(--cream); }
+  .hero {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .portrait-wrap { display: flex; justify-content: center; align-items: center; }
+  .portrait { position: relative; width: 260px; height: 308px; }
+  .portrait-bg {
+    position: absolute; inset: 0;
+    background: var(--cream-deep);
+    border: 1px solid var(--border);
+    border-radius: 130px 130px 8px 8px;
+    z-index: 0;
+  }
+  .portrait img {
+    width: 240px; height: 288px;
+    border-radius: 120px 120px 4px 4px;
+    object-fit: cover; object-position: center top;
+    position: absolute; top: 10px; left: 10px; z-index: 1;
+  }
+  .portrait-badge {
+    position: absolute; bottom: -14px; right: -14px;
+    background: var(--rust); color: var(--cream);
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 18px; letter-spacing: 0.04em;
+    z-index: 2; box-shadow: 0 4px 14px rgba(12,60,84,0.18);
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rust); margin-bottom: 0.85rem;
+  }
+  .hero h1 { font-size: 3.4rem; line-height: 1.0; }
+  .hero-affil {
+    font-size: 0.95rem; color: var(--navy-mid); font-weight: 600;
+    margin: 1rem 0 1.25rem; letter-spacing: 0.02em;
+  }
+  .hero p.lede { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 0.85rem; line-height: 1.7; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+
+  /* ── PROJECTS ──────────────────────────────────────────────── */
   #projects { background: var(--white); }
-
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-
   .project-card {
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 1.75rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
     background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
-
   .project-card:hover {
-    border-color: var(--blue);
-    box-shadow: 0 4px 20px rgba(27,79,168,0.08);
+    border-color: var(--navy);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
   }
-
   .project-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--blue);
-    background: var(--blue-light);
-    padding: 3px 10px;
-    border-radius: 2px;
-    display: inline-block;
-    margin-bottom: 0.75rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--navy);
+    background: var(--navy-light); padding: 3px 10px;
+    border-radius: 2px; display: inline-block; margin-bottom: 0.85rem;
   }
-
   .project-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--blue-dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.35;
+    font-family: var(--font-brand); font-weight: 700;
+    font-size: 1.15rem; color: var(--navy);
+    margin-bottom: 0.5rem; line-height: 1.35;
   }
+  .project-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
+  .project-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.85rem; font-style: italic; }
 
-  .project-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.65;
+  /* ── EVALUATION POLICY ─────────────────────────────────────── */
+  #evaluation-policy { background: var(--cream-deep); }
+  .ep-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center;
   }
-
-  .project-year {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 0.75rem;
-    font-style: italic;
-  }
-
-  /* EVAL POLICY */
-  #evaluation-policy { background: var(--blue-dark); color: var(--white); }
-  #evaluation-policy .section-label { color: var(--yellow); }
-  #evaluation-policy .section-title { color: var(--white); }
-
-  .ep-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .ep-text p {
-    color: rgba(255,255,255,0.8);
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
-
-  .ep-categories { display: flex; flex-direction: column; gap: 1rem; }
-
-  .ep-cat {
-    background: rgba(255,255,255,0.07);
-    border-left: 3px solid var(--yellow);
-    padding: 1rem 1.25rem;
-    border-radius: 0 3px 3px 0;
-  }
-
-  .ep-cat h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--yellow);
-    margin-bottom: 0.25rem;
-  }
-
-  .ep-cat p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.55;
-  }
-
-  /* CONTACT */
-  #contact { background: var(--off-white); }
-
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .contact-info p {
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--blue);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-
-  .contact-link:hover { text-decoration: underline; }
-
-  .contact-link-icon {
-    width: 34px;
-    height: 34px;
-    background: var(--blue-light);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-field { display: flex; flex-direction: column; gap: 5px; }
-
-  .form-field label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  .form-field input,
-  .form-field textarea {
-    padding: 10px 14px;
-    border: 1.5px solid var(--border);
-    border-radius: 3px;
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text);
+  .ep-text p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; line-height: 1.75; }
+  .ep-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+  .ep-card {
     background: var(--white);
-    transition: border-color 0.2s;
-    outline: none;
+    border: 1px solid var(--border);
+    border-left-width: 4px;
+    padding: 1rem 1.25rem;
+    border-radius: 0 4px 4px 0;
   }
+  .ep-card h4 {
+    font-family: var(--font-brand); font-size: 0.78rem; font-weight: 700;
+    margin-bottom: 0.25rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .ep-card p { font-size: 0.92rem; color: var(--text); line-height: 1.55; }
+  .ep-card.rust     { border-left-color: var(--rust); }
+  .ep-card.rust h4     { color: var(--rust-label); }
+  .ep-card.marigold { border-left-color: var(--marigold); }
+  .ep-card.marigold h4 { color: var(--marigold-label); }
+  .ep-card.sage     { border-left-color: var(--sage); }
+  .ep-card.sage h4     { color: var(--sage-label); }
 
-  .form-field input:focus,
-  .form-field textarea:focus { border-color: var(--blue); }
-  .form-field textarea { resize: vertical; min-height: 120px; }
+  /* ── RESEARCH ──────────────────────────────────────────────── */
+  #research { background: var(--cream); }
+  .research-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-bottom: 3.5rem;
+  }
+  .rcard {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top-width: 4px;
+    border-radius: 0 0 6px 6px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .rcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+  .rcard .num {
+    font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.18em;
+    padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 0.85rem;
+  }
+  .rcard h3 {
+    font-family: var(--font-brand); font-size: 1.05rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .rcard p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+  .rcard.rust     { border-top-color: var(--rust); }
+  .rcard.rust .num     { color: var(--rust-label); background: var(--rust-light); }
+  .rcard.sage     { border-top-color: var(--sage); }
+  .rcard.sage .num     { color: var(--sage-label); background: var(--sage-light); }
+  .rcard.marigold { border-top-color: var(--marigold); }
+  .rcard.marigold .num { color: var(--marigold-label); background: var(--marigold-light); }
 
-  /* FOOTER */
+  .scholar-note { font-size: 0.92rem; color: var(--text-muted); margin: 0 0 2.5rem; }
+  .scholar-note a { color: var(--rust); font-weight: 600; text-decoration: none; }
+  .scholar-note a:hover { text-decoration: underline; }
+
+  .pub-group { margin-bottom: 3rem; }
+  .pub-group:last-child { margin-bottom: 0; }
+  .pub-group-title {
+    font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase;
+    letter-spacing: 0.03em; margin-bottom: 1rem; padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--marigold); display: inline-block;
+  }
+  .pub-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .pub-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 1.25rem; background: var(--white);
+    border: 1px solid var(--border); border-left-width: 4px;
+    border-radius: 0 3px 3px 0; font-size: 0.92rem; line-height: 1.6;
+  }
+  .pub-year {
+    font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 2px;
+    white-space: nowrap; flex-shrink: 0; margin-top: 3px;
+  }
+  .pub-cite { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 2px; display: block; }
+  .pub-group.rust .pub-group-title { color: var(--rust); }
+  .pub-group.rust .pub-item { border-left-color: var(--rust); }
+  .pub-group.rust .pub-year { color: var(--rust-label); background: var(--rust-light); }
+  .pub-group.sage .pub-group-title { color: var(--sage-label); }
+  .pub-group.sage .pub-item { border-left-color: var(--sage); }
+  .pub-group.sage .pub-year { color: var(--sage-label); background: var(--sage-light); }
+  .pub-group.marigold .pub-group-title { color: var(--marigold-label); }
+  .pub-group.marigold .pub-item { border-left-color: var(--marigold); }
+  .pub-group.marigold .pub-year { color: var(--marigold-label); background: var(--marigold-light); }
+
+  /* ── CONTACT ───────────────────────────────────────────────── */
+  #contact { background: var(--white); }
+  .contact-info p { color: var(--text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--navy); text-decoration: none; font-size: 0.98rem; font-weight: 600;
+  }
+  .contact-link:hover { color: var(--rust); }
+  .contact-link:hover .icon { background: var(--rust-light); }
+  .icon {
+    width: 36px; height: 36px; background: var(--navy-light);
+    border-radius: 4px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: background 0.2s;
+  }
+  .icon svg { stroke: var(--navy); }
+
+  /* ── FOOTER ────────────────────────────────────────────────── */
   footer {
-    background: var(--blue-dark);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.85rem;
-    border-top: 3px solid var(--yellow);
+    background: var(--cream); color: var(--text-muted);
+    text-align: center; padding: 2.5rem 2rem; font-size: 0.85rem;
+    border-top: 1px solid var(--border);
   }
+  footer img { height: 28px; margin-bottom: 0.85rem; }
+  footer a { color: var(--rust); text-decoration: none; font-weight: 600; }
+  footer a:hover { text-decoration: underline; }
 
-  footer a { color: var(--yellow); text-decoration: none; }
-
-  /* RESPONSIVE */
+  /* ── RESPONSIVE ────────────────────────────────────────────── */
   @media (max-width: 900px) {
-    .hero-inner, .research-areas, .projects-grid, .ep-layout, .contact-layout {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .hero-text h1 { font-size: 2.2rem; }
+    nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
-    .hero-stats { flex-wrap: wrap; gap: 1rem; }
+    .hero-inner, .ep-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .projects-grid, .research-cards { grid-template-columns: 1fr; }
+    .portrait-wrap { order: -1; }
+    .hero h1 { font-size: 2.4rem; }
+    .inner { padding: 3.5rem 1.5rem; }
+    .hero-inner { padding: 2.5rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- ── NAV ─────────────────────────────────────────────────────── -->
 <nav>
-  <div class="nav-name">Alana R. <span>Kinarsky</span>, PhD</div>
-  <ul class="nav-links" id="nav-links">
+  <a href="#about" class="nav-brand" aria-label="ARK Evaluation home">
+    <img src="assets/ark-logo-transparent.png" alt="ARK Evaluation">
+  </a>
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#evaluation-policy">Evaluation Policy</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- ── ABOUT / HERO ────────────────────────────────────────────── -->
+<section id="about" class="hero">
   <div class="hero-inner">
-    <div class="hero-photo-wrap">
-      <img
-        src="https://media.bio.site/sites/7971a2b5-6005-4963-9b25-a00a20fc7237/hpN6v7yRDK9y5z3hBLQkBW.jpg"
-        alt="Alana R. Kinarsky, PhD"
-        class="hero-photo"
-      >
-      <div class="photo-ring"></div>
-    </div>
-    <div class="hero-text">
-      <h1>Alana R.<br>Kinarsky, PhD</h1>
-      <div class="title-tag">Social Science Researcher &amp; Evaluator</div>
-      <p class="affil">UCLA School of Education &nbsp;&middot;&nbsp; ARK Evaluation</p>
-      <p>Dr. Alana Kinarsky is a social science researcher and evaluator specializing in youth development, faith-based initiatives, and organizational learning. Based in Portland, OR, she brings expertise in evaluating programs across diverse religious and cultural contexts.</p>
-      <p>She works as a research data analyst at UCLA's School of Education while running ARK Evaluation, her independent consultancy founded in 2015. She earned her doctorate in Social Research Methodology from UCLA, specializing in Program Evaluation.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">199</div>
-          <div class="stat-label">Citations</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">5</div>
-          <div class="stat-label">h-index</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">i10-index</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">10</div>
-          <div class="stat-label">Publications</div>
-        </div>
+    <div class="portrait-wrap">
+      <div class="portrait">
+        <div class="portrait-bg"></div>
+        <img src="assets/alana-portrait.jpg" alt="Alana R. Kinarsky, PhD">
+        <div class="portrait-badge">PhD</div>
       </div>
-      <div class="hero-links">
-        <a href="#research" class="btn btn-primary">View My Research</a>
+    </div>
+    <div>
+      <div class="hero-eyebrow">Social Science Research &amp; Evaluation</div>
+      <h1>Alana R.<br>Kinarsky, PhD</h1>
+      <p class="hero-affil">UCLA School of Education &nbsp;·&nbsp; ARK Evaluation &nbsp;·&nbsp; Portland, OR</p>
+      <p class="lede">Dr. Alana Kinarsky is a social science researcher and evaluator specializing in youth development, faith-based initiatives, and organizational learning. She brings expertise in evaluating programs across diverse religious and cultural contexts.</p>
+      <p class="lede">She works as a research data analyst at UCLA's School of Education while running ARK Evaluation, her independent consultancy founded in 2015.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="dotted-divider"></div>
+<div class="inner" style="padding-top:0;padding-bottom:0;"><div class="divider"></div></div>
 
-<!-- RESEARCH -->
-<section id="research">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Scholarship</div>
-      <h2 class="section-title">Research</h2>
-      <p class="section-subtitle">My work sits at the intersection of evaluation policy, philanthropic practice, and social science. I focus on how evaluation shapes organizations and communities.</p>
-    </div>
-
-    <div class="research-areas">
-      <div class="research-card">
-        <span class="research-card-icon">&#x1F4CB;</span>
-        <h3>Evaluation Policy</h3>
-      </div>
-      <div class="research-card">
-        <span class="research-card-icon">&#x1F3DB;</span>
-        <h3>Philanthropy &amp; Foundations</h3>
-      </div>
-      <div class="research-card">
-        <span class="research-card-icon">&#x1F50D;</span>
-        <h3>Youth Development &amp; Social Services</h3>
-      </div>
-    </div>
-
-    <div class="dotted-divider dotted-divider-blue"></div>
-
-    <p class="scholar-note">
-      Below I list my published research. For a full list, visit my
-      <a href="https://scholar.google.com/citations?user=ra4GlgoAAAAJ&hl=en" target="_blank">Google Scholar page</a>.
-      Happy to provide copies of any work — just email me.
-    </p>
-
-    <!-- Evaluation Policy -->
-    <div class="pub-group">
-      <div class="pub-group-title">Evaluation Policy</div>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <span class="pub-year">2023</span>
-          <span class="pub-text">
-            Kinarsky, A. R., &amp; Christie, C. A. The intent and influence of evaluation policies and strategies in the philanthropic sector.
-            <span class="pub-cite">Evaluation and Program Planning, 100, 102343.</span>
-          </span>
-        </li>
-        <li class="pub-item">
-          <span class="pub-year">2022</span>
-          <span class="pub-text">
-            Kinarsky, A. R., &amp; Christie, C. A. Analysis of evaluation policies in the philanthropic sector.
-            <span class="pub-cite">American Journal of Evaluation, 43(2), 175–192.</span>
-          </span>
-        </li>
-        <li class="pub-item">
-          <span class="pub-year">2022</span>
-          <span class="pub-text">
-            Fierro, L. A., Kinarsky, A. R., Echeverria-Estrada, C., Sabat Bass, N., &amp; Christie, C. A. The importance of implementation: Putting evaluation policy to work.
-            <span class="pub-cite">New Directions for Evaluation, 2022(173), 49–62.</span>
-          </span>
-        </li>
-        <li class="pub-item">
-          <span class="pub-year">2019</span>
-          <span class="pub-text">
-            Kinarsky, A. R., Alkin, M. C., &amp; Christie, C. A. What have we learned?
-            <span class="pub-cite">New Directions for Evaluation, 2019(163), 83–93.</span>
-          </span>
-        </li>
-        <li class="pub-item">
-          <span class="pub-year">2019</span>
-          <span class="pub-text">
-            Kinarsky, A. <em>An analysis of evaluation policy in the philanthropic sector</em> (Doctoral dissertation).
-            <span class="pub-cite">University of California, Los Angeles.</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Philanthropy & Foundations -->
-    <div class="pub-group">
-      <div class="pub-group-title sage">Philanthropy &amp; Foundations</div>
-      <ul class="pub-list">
-        <li class="pub-item sage">
-          <span class="pub-year">2018</span>
-          <span class="pub-text">
-            Kinarsky, A. R. The evaluation landscape: US foundation spending on evaluation.
-            <span class="pub-cite">New Directions for Evaluation, 2018(160), 81–96.</span>
-          </span>
-        </li>
-        <li class="pub-item sage">
-          <span class="pub-year">2018</span>
-          <span class="pub-text">
-            Lemire, S., Fierro, L. A., Kinarsky, A. R., Fujita-Conrads, E., &amp; Christie, C. A. The US federal evaluation market.
-            <span class="pub-cite">New Directions for Evaluation, 2018(160), 63–80.</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Evaluation Theory & Other -->
-    <div class="pub-group">
-      <div class="pub-group-title plum">Evaluation Theory &amp; Other</div>
-      <ul class="pub-list">
-        <li class="pub-item plum">
-          <span class="pub-year">2023</span>
-          <span class="pub-text">
-            Kinarsky, A. R., &amp; Fujita-Conrads, E. Evaluation theory synopses.
-            <span class="pub-cite">Evaluation Roots: Theory Influencing Practice, 255.</span>
-          </span>
-        </li>
-        <li class="pub-item plum">
-          <span class="pub-year">2019</span>
-          <span class="pub-text">
-            Dillman, L., Scott, C., &amp; Kinarsky, A. R. The case study: The women affirming motherhood program.
-            <span class="pub-cite">New Directions for Evaluation, 2019(163), 19–26.</span>
-          </span>
-        </li>
-        <li class="pub-item plum">
-          <span class="pub-year">2017</span>
-          <span class="pub-text">
-            Kinarsky, A. R. Fostering success: Understanding the experience of foster youth undergraduates.
-            <span class="pub-cite">Children and Youth Services Review, 81, 220–228.</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<div class="dotted-divider"></div>
-
-<!-- PROJECTS -->
+<!-- ── PROJECTS ────────────────────────────────────────────────── -->
 <section id="projects">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Past Work</div>
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">A selection of completed research and evaluation projects across nonprofit and philanthropic sectors.</p>
+  <div class="inner">
+    <div class="section-head">
+      <span class="arch"></span>
+      <div class="eyebrow">Evaluation &amp; Applied Work</div>
+      <h2>Evaluation Projects</h2>
+      <p class="subtitle">Selected research and evaluation engagements across the nonprofit and philanthropic sectors.</p>
     </div>
     <div class="projects-grid">
       <div class="project-card">
         <span class="project-tag">Mixed Methods</span>
         <h3>Strength, Stress, and Support</h3>
         <p>A study of nearly 2,500 American Jewish teens conducted in partnership with Stanford and JFNA, examining wellbeing, stress, and sources of support.</p>
-        <p class="project-year">Completed 2025 &nbsp;&middot;&nbsp; BeWell</p>
+        <p class="project-meta">Completed 2025 &nbsp;·&nbsp; BeWell</p>
       </div>
       <div class="project-card">
         <span class="project-tag">Program Evaluation</span>
         <h3>Campus Commons Pilot Year</h3>
         <p>Lead evaluator for the pilot year of the Bronfman Fellowship's Campus Commons program, assessing implementation and early outcomes.</p>
-        <p class="project-year">Completed 2025 &nbsp;&middot;&nbsp; Bronfman Fellowship</p>
+        <p class="project-meta">Completed 2025 &nbsp;·&nbsp; Bronfman Fellowship</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="dotted-divider"></div>
+<div class="inner" style="padding-top:0;padding-bottom:0;"><div class="divider"></div></div>
 
-<!-- EVALUATION POLICY -->
+<!-- ── EVALUATION POLICY ───────────────────────────────────────── -->
 <section id="evaluation-policy">
-  <div class="section-inner">
-    <div class="ep-layout">
+  <div class="inner">
+    <div class="ep-grid">
       <div class="ep-text">
-        <div class="section-label">Related Work</div>
-        <h2 class="section-title">Evaluation Policy</h2>
-        <div class="dotted-divider dotted-divider-white" style="margin:1.5rem 0;"></div>
+        <div class="eyebrow">Related Work</div>
+        <h2 style="font-size:2.2rem;line-height:1.1;">Evaluation Policy</h2>
+        <div class="divider" style="margin:1.5rem 0;"></div>
         <p>Evaluation policies shape how organizations understand, plan, and use evaluation. They are essential for managing program evaluations effectively, especially at scale.</p>
-        <p>The Evaluation Policy Research Hub collects resources to help practitioners and scholars understand existing evaluation policies and write new ones. It covers government, foundations, and emerging research.</p>
-        <a href="https://www.evaluationpolicy.com/" target="_blank" class="btn btn-yellow" style="margin-top:1.5rem;">Visit the Evaluation Policy Hub &#8599;</a>
+        <p>The Evaluation Policy Research Hub collects resources to help practitioners and scholars understand existing evaluation policies and write new ones.</p>
+        <a href="https://www.evaluationpolicy.com/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:0.75rem;">Visit the Evaluation Policy Hub ↗</a>
       </div>
-      <div class="ep-categories">
-        <div class="ep-cat">
+      <div class="ep-cards">
+        <div class="ep-card rust">
           <h4>Government</h4>
           <p>Resources and guidance on evaluation policies for government agencies and programs.</p>
         </div>
-        <div class="ep-cat">
+        <div class="ep-card marigold">
           <h4>Foundations</h4>
           <p>Research on evaluation policies in philanthropic organizations and recommendations for writing new ones.</p>
         </div>
-        <div class="ep-cat">
+        <div class="ep-card sage">
           <h4>Emerging Research</h4>
           <p>Scholarly publications on evaluation policy and emerging practices across sectors.</p>
         </div>
@@ -808,95 +473,171 @@
   </div>
 </section>
 
-<div class="dotted-divider"></div>
+<div class="inner" style="padding-top:0;padding-bottom:0;"><div class="divider"></div></div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">Contact</h2>
-      <p class="section-subtitle">Interested in collaborating, requesting a copy of a publication, or learning more about my work? Reach out.</p>
+<!-- ── RESEARCH & PUBLICATIONS ─────────────────────────────────── -->
+<section id="research">
+  <div class="inner">
+    <div class="section-head">
+      <span class="arch"></span>
+      <div class="eyebrow">Scholarship</div>
+      <h2>Research &amp; Publications</h2>
+      <p class="subtitle">My work sits at the intersection of evaluation policy, philanthropic practice, and social science — focused on how evaluation shapes organizations and communities.</p>
     </div>
-    <div class="contact-layout">
-      <div class="contact-info">
-        <p>I welcome inquiries from researchers, nonprofit leaders, foundation staff, and others interested in evaluation and applied social science. I am happy to share copies of published work.</p>
-        <div class="contact-links">
-          <a href="mailto:alanakinarsky@gmail.com" class="contact-link">
-            <span class="contact-link-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FA8" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M2 7l10 7 10-7"/>
-              </svg>
-            </span>
-            alanakinarsky@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/alanakinarsky/" target="_blank" class="contact-link">
-            <span class="contact-link-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FA8" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="2"/>
-                <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/>
-              </svg>
-            </span>
-            LinkedIn
-          </a>
-          <a href="https://scholar.google.com/citations?user=ra4GlgoAAAAJ&hl=en" target="_blank" class="contact-link">
-            <span class="contact-link-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FA8" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-              </svg>
-            </span>
-            Google Scholar
-          </a>
-          <a href="https://www.evaluationpolicy.com/" target="_blank" class="contact-link">
-            <span class="contact-link-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FA8" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                <path d="M2 12h20"/>
-              </svg>
-            </span>
-            evaluationpolicy.com
-          </a>
-        </div>
+
+    <div class="research-cards">
+      <div class="rcard rust">
+        <span class="num">01</span>
+        <h3>Evaluation Policy</h3>
+        <p>How foundations and agencies write the rules that shape practice.</p>
+      </div>
+      <div class="rcard sage">
+        <span class="num">02</span>
+        <h3>Philanthropy &amp; Foundations</h3>
+        <p>Mapping how US foundations spend on, and learn from, evaluation.</p>
+      </div>
+      <div class="rcard marigold">
+        <span class="num">03</span>
+        <h3>Youth Development &amp; Social Services</h3>
+        <p>Foster youth, faith-based teen programs, and organizational learning.</p>
+      </div>
+    </div>
+
+    <div class="divider divider--rust" style="margin-bottom:2.5rem;"></div>
+
+    <p class="scholar-note">
+      Below is a selection of my published research. For a full list, visit my
+      <a href="https://scholar.google.com/citations?user=ra4GlgoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar page</a>.
+      Happy to provide copies of any work — just email me.
+    </p>
+
+    <div class="pub-group rust">
+      <div class="pub-group-title">Evaluation Policy</div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-year">2023</span>
+          <span>Kinarsky, A. R., &amp; Christie, C. A. The intent and influence of evaluation policies and strategies in the philanthropic sector.
+            <span class="pub-cite">Evaluation and Program Planning, 100, 102343.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2022</span>
+          <span>Kinarsky, A. R., &amp; Christie, C. A. Analysis of evaluation policies in the philanthropic sector.
+            <span class="pub-cite">American Journal of Evaluation, 43(2), 175–192.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2022</span>
+          <span>Fierro, L. A., Kinarsky, A. R., Echeverria-Estrada, C., Sabat Bass, N., &amp; Christie, C. A. The importance of implementation: Putting evaluation policy to work.
+            <span class="pub-cite">New Directions for Evaluation, 2022(173), 49–62.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2019</span>
+          <span>Kinarsky, A. R., Alkin, M. C., &amp; Christie, C. A. What have we learned?
+            <span class="pub-cite">New Directions for Evaluation, 2019(163), 83–93.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2019</span>
+          <span>Kinarsky, A. <em>An analysis of evaluation policy in the philanthropic sector</em> (Doctoral dissertation).
+            <span class="pub-cite">University of California, Los Angeles.</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-group sage">
+      <div class="pub-group-title">Philanthropy &amp; Foundations</div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-year">2018</span>
+          <span>Kinarsky, A. R. The evaluation landscape: US foundation spending on evaluation.
+            <span class="pub-cite">New Directions for Evaluation, 2018(160), 81–96.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2018</span>
+          <span>Lemire, S., Fierro, L. A., Kinarsky, A. R., Fujita-Conrads, E., &amp; Christie, C. A. The US federal evaluation market.
+            <span class="pub-cite">New Directions for Evaluation, 2018(160), 63–80.</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-group marigold">
+      <div class="pub-group-title">Evaluation Theory &amp; Other</div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-year">2023</span>
+          <span>Kinarsky, A. R., &amp; Fujita-Conrads, E. Evaluation theory synopses.
+            <span class="pub-cite">Evaluation Roots: Theory Influencing Practice, 255.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2019</span>
+          <span>Dillman, L., Scott, C., &amp; Kinarsky, A. R. The case study: The women affirming motherhood program.
+            <span class="pub-cite">New Directions for Evaluation, 2019(163), 19–26.</span></span>
+        </li>
+        <li class="pub-item">
+          <span class="pub-year">2017</span>
+          <span>Kinarsky, A. R. Fostering success: Understanding the experience of foster youth undergraduates.
+            <span class="pub-cite">Children and Youth Services Review, 81, 220–228.</span></span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="inner" style="padding-top:0;padding-bottom:0;"><div class="divider"></div></div>
+
+<!-- ── CONTACT ─────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Get in Touch</div>
+      <h2>Contact</h2>
+      <p class="subtitle">Interested in collaborating, requesting a copy of a publication, or learning more about my work? Reach out.</p>
+    </div>
+    <div class="contact-info">
+      <p>I welcome inquiries from researchers, nonprofit leaders, foundation staff, and others interested in evaluation and applied social science. I am happy to share copies of published work.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:alanakinarsky@gmail.com">
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span>
+          alanakinarsky@gmail.com
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/alanakinarsky/" target="_blank" rel="noopener">
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 0 1 6 0v4"/></svg></span>
+          LinkedIn
+        </a>
+        <a class="contact-link" href="https://scholar.google.com/citations?user=ra4GlgoAAAAJ&hl=en" target="_blank" rel="noopener">
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+          Google Scholar
+        </a>
+        <a class="contact-link" href="https://www.evaluationpolicy.com/" target="_blank" rel="noopener">
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+          evaluationpolicy.com
+        </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── FOOTER ──────────────────────────────────────────────────── -->
 <footer>
-  <p>
-    &copy; 2025 Alana R. Kinarsky, PhD &nbsp;&middot;&nbsp;
-    <a href="https://www.arkeval.com">arkeval.com</a> &nbsp;&middot;&nbsp;
+  <img src="assets/ark-logo-transparent.png" alt="ARK Evaluation">
+  <p>© 2025 Alana R. Kinarsky, PhD &nbsp;·&nbsp;
+    <a href="https://www.arkeval.com">arkeval.com</a> &nbsp;·&nbsp;
     <a href="https://www.evaluationpolicy.com">evaluationpolicy.com</a>
   </p>
 </footer>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  document.getElementById('form-msg').style.display = 'block';
-  e.target.reset();
-}
-
-// Active nav highlighting
-(function() {
-  const links = document.querySelectorAll('.nav-links a');
-  const sections = ['about','research','projects','evaluation-policy','contact'];
-  window.addEventListener('scroll', function() {
-    for (const id of sections) {
-      const el = document.getElementById(id);
-      if (!el) continue;
-      const r = el.getBoundingClientRect();
-      if (r.top <= 120 && r.bottom > 120) {
-        links.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector('.nav-links a[href="#' + id + '"]');
-        if (active) active.classList.add('active');
-        return;
+  // Scroll-spy: highlight the active nav link.
+  const sections = [...document.querySelectorAll('section[id]')];
+  const navLinks = new Map([...document.querySelectorAll('.nav-links a')].map(a => [a.getAttribute('href').slice(1), a]));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        navLinks.get(e.target.id)?.classList.add('active');
       }
-    }
-  });
-})();
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => spy.observe(s));
 </script>
 </body>
 </html>
