@@ -70,16 +70,19 @@
   nav {
     position: sticky;
     top: 0; z-index: 100;
-    height: var(--nav-height);
     background: var(--cream);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2.5rem;
+    padding: 1.25rem 2.5rem;
     border-bottom: 1px solid var(--border);
+    transition: padding 0.28s ease;
   }
   .nav-brand { display: flex; align-items: center; text-decoration: none; }
-  .nav-brand img { height: 80px; display: block; }
+  .nav-brand img { height: 320px; display: block; transition: height 0.28s ease; }
+  /* Once scrolled, shrink to a compact, usable nav */
+  nav.scrolled { padding: 0 2.5rem; }
+  nav.scrolled .nav-brand img { height: 72px; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     text-decoration: none;
@@ -383,6 +386,9 @@
 </head>
 <body>
 
+<!-- Sentinel: when it scrolls out of view (~60px), the nav shrinks. -->
+<div id="nav-top-sentinel" style="position:absolute;top:60px;left:0;width:1px;height:1px;pointer-events:none;"></div>
+
 <!-- ── NAV ─────────────────────────────────────────────────────── -->
 <nav>
   <a href="#about" class="nav-brand" aria-label="ARK Evaluation home">
@@ -648,6 +654,16 @@
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach(s => spy.observe(s));
+
+  // Shrink the big masthead logo once the user scrolls past the top.
+  // Uses a sentinel + IntersectionObserver so it works regardless of which
+  // element actually scrolls.
+  const navEl = document.querySelector('nav');
+  const sentinel = document.getElementById('nav-top-sentinel');
+  const navSpy = new IntersectionObserver(([e]) => {
+    navEl.classList.toggle('scrolled', !e.isIntersecting);
+  }, { threshold: 0 });
+  navSpy.observe(sentinel);
 </script>
 </body>
 </html>
