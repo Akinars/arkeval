@@ -280,6 +280,25 @@
   .ep-card.sage     { border-left-color: var(--sage); }
   .ep-card.sage h4     { color: var(--sage-label); }
 
+  /* PolicyCoder cross-promo card */
+  .pc-promo {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border); border-left: 4px solid var(--rust);
+    border-radius: 0 6px 6px 0;
+    padding: 1.5rem 1.75rem; margin-top: 2.5rem;
+  }
+  .pc-promo .pc-logo { width: 76px; height: 76px; flex-shrink: 0; border-radius: 10px; object-fit: contain; }
+  .pc-promo .pc-body { flex: 1; }
+  .pc-promo .pc-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.15rem; }
+  .pc-promo h3 { font-family: var(--font-brand); font-weight: 700; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.3rem; }
+  .pc-promo p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
+  .pc-promo .btn { flex-shrink: 0; white-space: nowrap; }
+  @media (max-width: 760px) {
+    .pc-promo { flex-direction: column; align-items: flex-start; }
+    .pc-promo .btn { width: auto; }
+  }
+
   /* ── RESEARCH ──────────────────────────────────────────────── */
   #research { background: var(--cream); }
   .research-cards {
@@ -485,6 +504,16 @@
           <p>Scholarly publications on evaluation policy and emerging practices across sectors.</p>
         </div>
       </div>
+    </div>
+
+    <div class="pc-promo">
+      <img class="pc-logo" src="assets/policycoder-logo.png" alt="PolicyCoder logo">
+      <div class="pc-body">
+        <div class="pc-eyebrow">Now building</div>
+        <h3>PolicyCoder</h3>
+        <p>An interactive tool that turns a growing library of evaluation policies into a searchable, comparable resource — so practitioners can see how policies are written and learn from them.</p>
+      </div>
+      <a class="btn btn-primary" href="https://www.evaluationpolicy.com/policy-coder/" target="_blank" rel="noopener">Request early access ↗</a>
     </div>
   </div>
 </section>
