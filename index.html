@@ -242,6 +242,14 @@
   }
   .project-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
   .project-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.85rem; font-style: italic; }
+  .project-card h3 a { color: inherit; text-decoration: none; }
+  .project-card:hover h3 a { color: var(--rust); }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--rust); text-decoration: none;
+  }
+  .project-link:hover { text-decoration: underline; }
 
   /* ── EVALUATION POLICY ─────────────────────────────────────── */
   #evaluation-policy { background: var(--cream-deep); }
@@ -427,15 +435,17 @@
     <div class="projects-grid">
       <div class="project-card">
         <span class="project-tag">Mixed Methods</span>
-        <h3>Strength, Stress, and Support</h3>
+        <h3><a href="https://jimjosephfoundation.org/wp-content/uploads/2025/02/BeWell-Final-Feb.-2025.pdf" target="_blank" rel="noopener">Strength, Stress, and Support</a></h3>
         <p>A study of nearly 2,500 American Jewish teens conducted in partnership with Stanford and JFNA, examining wellbeing, stress, and sources of support.</p>
         <p class="project-meta">Completed 2025 &nbsp;·&nbsp; BeWell</p>
+        <a class="project-link" href="https://jimjosephfoundation.org/wp-content/uploads/2025/02/BeWell-Final-Feb.-2025.pdf" target="_blank" rel="noopener">Read the full report ↗</a>
       </div>
       <div class="project-card">
         <span class="project-tag">Program Evaluation</span>
-        <h3>Campus Commons Pilot Year</h3>
+        <h3><a href="https://bronfman.org/wp-content/uploads/2025/08/Campus-Commons-Pilot-Year_evaluation-8.1.25.pdf" target="_blank" rel="noopener">Campus Commons Pilot Year</a></h3>
         <p>Lead evaluator for the pilot year of the Bronfman Fellowship's Campus Commons program, assessing implementation and early outcomes.</p>
         <p class="project-meta">Completed 2025 &nbsp;·&nbsp; Bronfman Fellowship</p>
+        <a class="project-link" href="https://bronfman.org/wp-content/uploads/2025/08/Campus-Commons-Pilot-Year_evaluation-8.1.25.pdf" target="_blank" rel="noopener">Read the full report ↗</a>
       </div>
     </div>
   </div>
