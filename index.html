@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alana R. Kinarsky, PhD — ARK Evaluation</title>
-<meta name="description" content="Alana R. Kinarsky, PhD helps foundations, nonprofits, and faith-based organizations find out whether their programs are working — through mixed-methods studies, policy analysis, and implementation research.">
+<meta name="description" content="Alana R. Kinarsky, PhD helps nonprofits and the teams behind their programs turn their goals into clear, shared, measurable outcomes — and tell the story of the difference they make. Social science research & evaluation, Portland, Oregon.">
 <link rel="canonical" href="https://arkeval.com/">
 <link rel="icon" type="image/png" href="assets/ark-logo-evergreen.png">
 <meta property="og:type" content="website">
@@ -78,7 +78,9 @@
   /* hero */
   .hero{padding:4.5rem 0 5rem;}
   .hero-grid{display:grid; grid-template-columns:1.4fr .9fr; gap:4rem; align-items:center;}
-  .portrait{width:100%; aspect-ratio:5/6; object-fit:cover; object-position:center top; border-radius:8px;}
+  .portrait-arch{position:relative; width:min(330px,100%); margin:0 auto;}
+  .portrait-arch .bg{position:absolute; inset:0; transform:translate(11px,13px); background:var(--tint); border-radius:48% 48% 10px 10px / 40% 40% 6px 6px;}
+  .portrait{position:relative; width:100%; aspect-ratio:5/6; object-fit:cover; object-position:center top; border-radius:48% 48% 8px 8px / 40% 40% 5px 5px; border:6px solid var(--green);}
   .hero .btns{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.9rem;}
   .hero .pc-line{font-size:1.02rem; color:var(--muted); margin:1.3rem 0 0;}
   .hero .pc-line a{color:var(--green); font-weight:600; border-bottom:1px solid transparent; transition:border-color .2s;}
@@ -150,7 +152,7 @@
     .brand-logo{height:74px;}
     .hero-grid, .policy-grid, .proj-grid{grid-template-columns:1fr; gap:2.25rem;}
     .hero{padding:2.25rem 0 3.25rem;}
-    .portrait{max-width:280px; margin:1.5rem auto 0;}
+    .portrait-arch{max-width:260px; margin:1.5rem auto 0;}
     .band{padding:3.5rem 0;}
     .policycoder{flex-direction:column; align-items:flex-start; gap:1.25rem;}
     section[id]{scroll-margin-top:150px;}
@@ -176,16 +178,16 @@
   <div class="shell">
     <div class="hero-grid">
       <div class="reveal">
-        <h1 class="h1">Good intentions, meet good evidence.</h1>
-        <p class="lead" style="font-style:italic;">Clarity for the people doing work that matters.</p>
-        <p class="body"><b>Alana R. Kinarsky, PhD</b> helps nonprofits and the teams behind their programs turn what they're trying to do into clear, shared, and measurable goals — so the whole team is aligned, outcomes can be measured, and you can tell the story of the difference you make. She also works as a research data analyst at UCLA's School of Education.</p>
+        <h1 class="h1">Hi, I'm Alana.</h1>
+        <p class="lead" style="font-size:1.12rem;">I help nonprofits and the teams behind their programs turn what they're trying to do into clear, shared, and measurable goals — so the whole team is aligned, outcomes can be measured, and you can tell the story of the difference you make.</p>
+        <p class="body">I have a PhD in Social Science Research from UCLA, where I also work as a research data analyst.</p>
         <p class="pc-line">Currently building <strong style="color:var(--ink);">PolicyCoder</strong>, a searchable library of evaluation policies — <a href="https://forms.gle/xFWkMgMSbCyFwvYWA" target="_blank" rel="noopener">join the waitlist ↗</a></p>
         <div class="btns">
           <a href="#projects" class="btn btn-solid">View my projects</a>
           <a href="#contact" class="btn btn-ghost">Get in touch</a>
         </div>
       </div>
-      <div><img class="portrait" src="assets/alana-portrait.jpg" alt="Alana R. Kinarsky, PhD" width="300" height="360"></div>
+      <div><div class="portrait-arch"><div class="bg"></div><img class="portrait" src="assets/alana-portrait.jpg" alt="Alana R. Kinarsky, PhD" width="300" height="360"></div></div>
     </div>
   </div>
 </section>
